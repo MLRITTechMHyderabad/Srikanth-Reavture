@@ -1,3 +1,4 @@
+""""
 def discount(customer):
     for customer in customers:
         if customer['age']>=18 and customer['age']<=25:
@@ -20,13 +21,13 @@ customers = [
 print(discount(customers))
 """
 def apply_discount(customers):
-    # Filter customers eligible for a discount
     eligible_customers = filter(lambda customer: 18 <= customer['age'] <= 40, customers)
     
-    # Apply the discount using map
     discounted_customers = map(
         lambda customer: {
-            **customer,
+            
+            "name": customer["name"],  
+        "age": customer["age"],
             "total_purchase": customer['total_purchase'] * (0.9 if customer['age'] <= 25 else 0.95)
         },
         eligible_customers
@@ -41,9 +42,6 @@ customers = [
     {"name": "Grace", "age": 45, "total_purchase": 180.0}
 ]
 
-# Get the new list of customers with discounted purchases
 discounted_customers = apply_discount(customers)
 
-# Print the result
 print(discounted_customers)
-"""
